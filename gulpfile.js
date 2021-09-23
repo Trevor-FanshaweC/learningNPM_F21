@@ -1,15 +1,18 @@
 // imports always go at the top
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
-// import sass from 'gulp-sass'; TODO - configure this plugin
+import sass from 'gulp-sass'; 
+import dart from 'sass'; // this is the dart-sass compiler
+
+const sassify = sass(dart); // configure the sass plugin to work with the dart sass compiler
 
 function compileSass(done) {
-    return gulp.src('sass/**/*.scss') // grab everything in the sass folder
-    .pipe(sass().on('error', sass.logError)) // run all our sass files thru the compiler
-    .pipe(gulp.dest('css')); // save the compiled CSS file in its directory
-
-    done();
-}
+    return (
+        gulp.src('sass/**/*.scss')
+        .pipe(sassify({outputStyle: "compressed"}).on('error', sassify.logError))
+        .pipe(gulp.dest('css'))
+    ) 
+  };
 
 function squashImages(done) {
     gulp.src('images/**') // grab everything in the images folder
