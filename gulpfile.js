@@ -8,9 +8,9 @@ const sassify = sass(dart); // configure the sass plugin to work with the dart s
 
 function compileSass(done) {
     return (
-        gulp.src('sass/**/*.scss')
-        .pipe(sassify({outputStyle: "compressed"}).on('error', sassify.logError))
-        .pipe(gulp.dest('css'))
+        gulp.src('sass/**/*.scss') // get every scss file in the sass directory
+        .pipe(sassify({outputStyle: "compressed"}).on('error', sassify.logError)) // run it thru the compiler, and also compress it
+        .pipe(gulp.dest('css')) // save the compiled file to the CSS directory
     ) 
   };
 
