@@ -1,6 +1,15 @@
-function getData(cb) {
+function getData(params, cb) {
     // use the Fetch API to retrieve some data
-    fetch("./includes/functions.php")
+    let baseURL = "./includes/index.php";
+    
+    if (params) {
+        let keys = Object.keys(params);
+        let newQStringParams = keys.map(key => `${key}=${params[key]}`).join("&&");
+
+        baseURL += `?${newQStringParams}`;        
+    }
+
+    fetch(baseURL)
     .then(res => res.json()) // unpack the API response (turn it back into plain JS)
     .then(data => {
         // do anything else here that we want with our data

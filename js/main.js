@@ -20,5 +20,5 @@ import { getData } from "./components/TheDataMiner.js";
         })
     }
 
-    getData(buildTeam);
+    getData(null, buildTeam);
 })()
