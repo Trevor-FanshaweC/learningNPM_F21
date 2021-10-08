@@ -5,9 +5,10 @@
    // filter the incoming basic request and call the appropriate functino
 
    if (isset($_GET["id"])) {
-       $result = getOneProf($pdo, $id);
+       $id = $_GET["id"];
+       $result = getProfData($pdo, $id);
    } else {
-       $result = getAllProfs($pdo);
+       $result = getProfData($pdo, null);
    }
 
    echo json_encode($result);
