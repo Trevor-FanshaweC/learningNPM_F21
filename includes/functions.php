@@ -3,7 +3,7 @@
     $result = array();
 
     function getProfData($conn, $prof) {
-        if (empty($prof)) {
+        if (is_null($prof)) {
             $query = "SELECT * FROM profs";
         } else {
             $query = "SELECT * FROM profs WHERE id='". $prof ."'";

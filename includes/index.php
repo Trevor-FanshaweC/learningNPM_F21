@@ -2,13 +2,10 @@
     require("connect.php");
     require("functions.php");
 
-   // filter the incoming basic request and call the appropriate functino
-
-   if (isset($_GET["id"])) {
-       $id = $_GET["id"];
-       $result = getProfData($pdo, $id);
-   } else {
-       $result = getProfData($pdo, null);
-   }
-
-   echo json_encode($result);
+    // get our data (one row or many) from our DB
+    // if we pass in the id param, use it. else set it to null
+    $id = isset($_GET["id"]) ? $_GET["id"] : null;
+    
+    // and then send that data back to our JS Fetch API
+    // $result = getProfData($pdo, $id);
+    echo json_encode(getProfData($pdo, $id));
