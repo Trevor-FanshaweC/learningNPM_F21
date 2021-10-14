@@ -24,8 +24,13 @@ function squashImages(done) {
 
 function watch() {
     console.log('watching files...');
+<<<<<<< HEAD
     gulp.watch("sass/**/*.scss", compileSass);
     gulp.watch("images/**", squashImages);
+=======
+    gulp.watch('sass/**/*.scss', compileSass);
+    gulp.watch('images/**', squashImages);
+>>>>>>> b4349ef4112c37bc14b9b56e6b5b40fdab302ff6
 }
 
 export { 
