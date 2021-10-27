@@ -9,7 +9,7 @@
     <title>Working With Fetch</title>
 </head>
 <body>
-    <main>
+    <main id="app">
         <h1>My Awesome Team</h1>
 
         <h2 class="team-blurb">
@@ -19,25 +19,12 @@
         </h2>
 
         <!-- this is where our dynamic data will go -->
-        <section id="team-members"></section>
+        <section id="team-members">
+            <thumb v-for="item in portfolioData"></thumb>
+        </section>
     </main>
 
-    <!-- templates go here. by default, template tags don't get rendered into the view -->
-    <template id="bio-template">
-        <section class="bio-panel">
-            <div class="p_avatar">
-                <img src="" alt="">
-            </div>
-    
-            <h2 class="p_name">slug</h2>
-            <h3 class="p_role">slug</h3>
-            <p class="p-description">
-                slug
-            </p>
-        </section>
-    </template>
-    <!-- end templates -->
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/main.js" type="module" defer></script>
 </body>
 </html>

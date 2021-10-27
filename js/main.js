@@ -1,24 +1,26 @@
 // import statements have to go at the top
 import { getData } from "./components/TheDataMiner.js";
+import TheThumbNail from "./components/TheThumbNail.js";
 
 (() => {
-    const   theTeam = document.querySelector("#team-members"),
-            theTemplate = document.querySelector("#bio-template").content;
+    const myVue = new Vue({
+        created: function() {
+            // go fetch the portfolio data here
+            getData(null, (data) => this.portfolioData = data )
+        },
 
-    function buildTeam(info) {
-        info.forEach(person => {
-            let panel = theTemplate.cloneNode(true),
-                memberInfo = panel.firstElementChild.children;
+        data: {
+            // this is storing the database info from our fetch call
+            portfolioData: [],
+            message: "hello from Vue"
+        },
 
-            memberInfo[0].querySelector('img').src = `images/${person.biopic}`;
-            memberInfo[1].textContent = person.name;
-            memberInfo[2].textContent = person.role;
-            memberInfo[3].textContent = person.nickname;
+        methods: {
 
-            // put the virtual panel in the team section in our HTML page
-            theTeam.appendChild(panel);
-        })
-    }
+        },
 
-    getData(buildTeam);
+        components: {
+            thumb: TheThumbNail
+        }
+    }).$mount("#app");    
 })()
