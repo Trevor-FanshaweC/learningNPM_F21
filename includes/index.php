@@ -2,13 +2,12 @@
     require("connect.php");
     require("functions.php");
 
-   // filter the incoming basic request and call the appropriate functino
+    // filter the incoming request
+    // this is a ternary statement -> shorthand if/else
+    // if the condition evaluates to true, use the expression to the left of the colon
+    // if it's false, use the expression to the right
+    $id = isset($_GET["id"]) ? $_GET["id"] : null;
+    $result = getProfData($pdo, $id);
 
-   if (isset($_GET["id"])) {
-       $id = $_GET["id"];
-       $result = getProfData($pdo, $id);
-   } else {
-       $result = getProfData($pdo, null);
-   }
-
+   // send the database result (our data) back to the javascript file
    echo json_encode($result);
