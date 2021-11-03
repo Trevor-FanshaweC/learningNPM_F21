@@ -11,6 +11,8 @@
 <body>
     <main id="app">
         <h1>My Awesome Team</h1>
+        <header class="main-header">
+        </header>
 
         <h2 class="team-blurb">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam dolorum repellendus velit pariatur ad labore, rem architecto inventore? Officiis tenetur molestias distinctio, provident non labore porro obcaecati nesciunt molestiae quas?
@@ -20,8 +22,20 @@
 
         <!-- this is where our dynamic data will go -->
         <section id="team-members">
-            <thumb v-for="item in portfolioData"></thumb>
+            <thumb 
+                v-on:showdata="popLightBox" 
+                v-for="item in portfolioData" 
+                :piece="item" 
+                :key="item.id">
+            </thumb>
         </section>
+
+        <button @click="toggleLightbox">Show Lightbox</button>
+
+        <section class="lightbox" :class='{ visible: isVisible }'>
+            <h1 class="port_title"></h1>
+        </section>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
