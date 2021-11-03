@@ -2,4 +2,11 @@
     display: inline-block;
     margin: 10px;
     border: thin dashed black;
+
+    .p_name {
+        color: blue;
+        font-size: 1.5em;
+        text-transform: uppercase;
+    }
 }
+
