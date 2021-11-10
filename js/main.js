@@ -1,13 +1,14 @@
 // import statements have to go at the top
 import { getData } from "./components/TheDataMiner.js";
 import TheThumbNail from "./components/TheThumbNail.js";
+import LightboxComponent from "./components/TheLightboxComponent.js";
 
 (() => {
     const myVue = new Vue({
         created: function() {
             // go fetch the portfolio data here
             // make it available in the Vue instance
-            getData(null, (data) => this.portfolioData = data );
+            getData(null, (data) => this.portfolioData = data);
         },
 
         data: {
@@ -15,26 +16,22 @@ import TheThumbNail from "./components/TheThumbNail.js";
             portfolioData: [],
             message: "hello from Vue",
             isVisible: false,
-            currentPortfolioItem = {}
+            currentPortfolioItem: {}
         },
 
         methods: {
             popLightBox(item) {
-                //debugger;
-                //let portHeader = document.querySelector(".port_title");
-
-                //portHeader.textContent = item.name;
+                debugger;
                 this.currentPortfolioItem = item;
-            },
 
-            toggleLightbox() {
+                // turn the lightbox on
                 this.isVisible = true;
             }
-
         },
 
         components: {
-            thumb: TheThumbNail
+            thumb: TheThumbNail,
+            lightbox: LightboxComponent
         }
     }).$mount("#app");    
 })()

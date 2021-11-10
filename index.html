@@ -30,11 +30,7 @@
             </thumb>
         </section>
 
-        <button @click="toggleLightbox">Show Lightbox</button>
-
-        <section class="lightbox" :class='{ visible: isVisible }'>
-            <h1 class="port_title"></h1>
-        </section>
+        <lightbox class="lightbox" :class='{ visible: isVisible }' :piece="currentPortfolioItem"></lightbox>
 
     </main>
 
