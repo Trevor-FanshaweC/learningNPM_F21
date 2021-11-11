@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <title>Working With Fetch</title>
 </head>
 <body>
@@ -30,7 +31,7 @@
             </thumb>
         </section>
 
-        <lightbox class="lightbox" :class='{ visible: isVisible }' :piece="currentPortfolioItem"></lightbox>
+        <lightbox v-on:closelb="closeLightBox" class="lightbox" :class='{ visible: isVisible }' :piece="currentPortfolioItem"></lightbox>
 
     </main>
 

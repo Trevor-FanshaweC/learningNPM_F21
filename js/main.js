@@ -26,6 +26,11 @@ import LightboxComponent from "./components/TheLightboxComponent.js";
 
                 // turn the lightbox on
                 this.isVisible = true;
+            },
+
+            closeLightBox() {
+                debugger;
+                this.isVisible = false;
             }
         },
 
