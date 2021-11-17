@@ -21,7 +21,7 @@ import LightboxComponent from "./components/TheLightboxComponent.js";
 
         methods: {
             popLightBox(item) {
-                debugger;
+                // debugger;
                 this.currentPortfolioItem = item;
 
                 // turn the lightbox on
@@ -29,7 +29,7 @@ import LightboxComponent from "./components/TheLightboxComponent.js";
             },
 
             closeLightBox() {
-                debugger;
+                // debugger;
                 this.isVisible = false;
             }
         },

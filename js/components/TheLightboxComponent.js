@@ -9,13 +9,13 @@ export default {
     computed: {
         activeComponent: function() {
             return `${this.piece.mediaType + "Component"}`;
-        }       
+        }
     },
 
     template: `
     <section class="lightboxWrapper">
-        <i @click="closeMe" class="fa-solid fa-circle-xmark"></i>
-        <h1>Type of Work: {{piece.mediaType}} Project</h1>
+       <i @click="closeMe" class="fa-solid fa-circle-xmark"></i>
+       <h1>Type of Work: {{piece.mediaType}}</h1>
 
         <component v-if="piece.mediaType" :is="activeComponent"></component>
 
@@ -27,7 +27,7 @@ export default {
 
     methods: {
         closeMe() {
-            debugger;
+            // document.querySelector(".lightbox").classList.remove('visible');
             this.$emit("closelb");
         }
     },
@@ -35,6 +35,5 @@ export default {
     components: {
         AudioComponent: TheAudioComponent,
         VideoComponent: TheVideoComponent
-
     }
 }
